@@ -1,9 +1,6 @@
 return {
-
-  {
-    "folke/which-key.nvim",
-    opts = {
-      preset = "modern",
-    },
+  "folke/which-key.nvim",
+  opts = {
+    preset = "modern",
   },
 }
