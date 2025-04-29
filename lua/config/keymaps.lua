@@ -5,8 +5,8 @@
 local set = vim.keymap.set
 
 -- Editing
-set("n", "<Home>", "^", { remap = true })
-set("n", "'", ";", { remap = false })
+set("n", "<Home>", "^", { remap = false })
+set("n", "'", ";", { remap = true })
 
 -- Buffers
 set("n", "<A-Right>", "<cmd>bnext<cr>", { desc = "Next buffer" })
