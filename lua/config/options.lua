@@ -10,3 +10,6 @@ opt.swapfile = false
 opt.autowriteall = true
 
 opt.winbar = "%=%m %f"
+
+local g = vim.g
+g.ai_cmp = false
