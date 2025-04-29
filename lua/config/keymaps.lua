@@ -9,8 +9,8 @@ set("n", "<Home>", "^", { remap = false })
 set("n", "'", ";", { remap = true })
 
 -- Buffers
-set("n", "<A-Right>", "<cmd>bnext<cr>", { desc = "Next buffer" })
-set("n", "<A-Left>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+set("n", "<A-Right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+set("n", "<A-Left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
 set("n", "<A-BS>", "<leader>bd", { remap = true })
 
 -- Windows
