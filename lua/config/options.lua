@@ -10,6 +10,7 @@ opt.swapfile = false
 opt.autowriteall = true
 
 opt.winbar = "%=%m %f"
+opt.shell = "fish"
 
 local g = vim.g
 g.ai_cmp = false

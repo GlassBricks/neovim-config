@@ -8,6 +8,15 @@ local set = vim.keymap.set
 set("n", "<Home>", "^", { remap = false })
 set("n", "'", ";", { remap = true })
 
+-- Nav
+
+-- Get out of the way of gr<motion>
+pcall(vim.keymap.del, "n", "gra")
+pcall(vim.keymap.del, "n", "gri")
+set("n", "gR", function()
+  Snacks.picker.lsp_references()
+end, { nowait = true, desc = "References" })
+
 -- Buffers
 set("n", "<A-Right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 set("n", "<A-Left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })

@@ -1,6 +1,5 @@
 return {
-
-  "nvim-lspconfig",
+  "neovim/nvim-lspconfig",
   opts = {
     codelens = {
       enabled = true,
