@@ -1,3 +1,7 @@
+if vim.env.NEOVIDE then
+  vim.g.neovide = true
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -18,6 +22,15 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- only if non-gui
+    {
+      import = "lazyvim.plugins.extras.ui.mini-animate",
+      cond = not vim.g.neovide,
+    },
+    {
+      import = "lazyvim.plugins.extras.ui.smear-cursor",
+      cond = not vim.g.neovide,
+    },
     -- import/override with your plugins
     { import = "plugins" },
   },

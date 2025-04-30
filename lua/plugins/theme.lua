@@ -8,7 +8,7 @@ return {
   {
     "catppuccin/nvim",
     opts = {
-      transparent_background = true,
+      transparent_background = not vim.g.neovide,
       styles = {
         comments = {},
       },

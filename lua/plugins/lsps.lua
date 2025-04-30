@@ -2,7 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     codelens = {
-      enabled = true,
+      enabled = false,
     },
     servers = {
       lua_ls = {

@@ -8,4 +8,5 @@ return {
     distance_stop_animating = 0.5,
     gamma = 1,
   },
+  cond = not vim.g.neovide,
 }

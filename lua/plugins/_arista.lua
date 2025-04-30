@@ -1,5 +1,5 @@
 return {
-  {
+  { -- arista configs
     name = "arista",
     dir = "/usr/share/vim/vimfiles/",
     cond = function()
@@ -10,8 +10,16 @@ return {
     "zbirenbaum/copilot.lua",
     enabled = false,
   },
-  -- lsps
   {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "clangd",
+        "pyright",
+      },
+    },
+  },
+  { -- tac lsp
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
@@ -46,25 +54,10 @@ return {
       },
     },
   },
-  -- clang format
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters = {
-        ["clang-format"] = {
-          command = "/usr/bin/clang-format",
-        },
-      },
-      formatters_by_ft = {
-        cpp = {
-          "clang-format",
-        },
-      },
-    },
-  },
-  {
+  { -- tac treesitter
     "nvim-treesitter/nvim-treesitter",
     opts = function()
+      LazyVim.format()
       ---@class config
       local configs = require("nvim-treesitter.parsers").get_parser_configs()
       configs.tac = {
@@ -77,5 +70,26 @@ return {
         },
       }
     end,
+  },
+  { -- Formatters
+    "stevearc/conform.nvim",
+    opts = {
+      formatters = {
+        -- use container's /usr/bin/clang-format, so it understands basedOnStyle: Aristra
+        ["clang-format"] = {
+          command = "/usr/bin/clang-format",
+        },
+        yapf = {
+          prepend_args = {
+            "--style",
+            "/home/benjamin.ye/opt/yapf.cfg",
+          },
+        },
+      },
+      formatters_by_ft = {
+        cpp = { "clang-format" },
+        python = { "yapf" },
+      },
+    },
   },
 }

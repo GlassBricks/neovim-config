@@ -29,6 +29,10 @@ set("n", "<C-S-Up>", "<C-w>k", { desc = "Focus up window" })
 set("n", "<C-S-Down>", "<C-w>j", { desc = "Focus down window" })
 set("n", "<C-S-Home>", "<C-w><C-w>", { desc = "Cycle windows" })
 
--- local csbs_key = "<C-S-BS>"
-local csbsp_key = "<C-h>"
-set("n", csbsp_key, "<C-w>q", { desc = "Close window" })
+set("n", "<C-S-BS>", "<C-w>q", { desc = "Close window" })
+set("n", "<C-h>", "<C-w>q", { desc = "Close window" })
+
+-- Format mode
+-- Based on https://github.com/LazyVim/LazyVim/pull/4801/files
+
+require("config.format")
