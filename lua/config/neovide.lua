@@ -13,5 +13,6 @@ vim.g.neovide_remember_window_size = true
 vim.g.neovide_cursor_vfx_mode = "torpedo"
 
 vim.o.title = true
-local host = vim.loop.os_gethostname():gsub("^benjamin%-ye%-", ""):match("^[^%.]+")
+local hostname = vim.fn.hostname()
+local host = hostname:gsub("^benjamin%-ye%-", ""):match("^[^%.]+")
 vim.o.titlestring = "Neovide: " .. host
