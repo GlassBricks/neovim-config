@@ -14,6 +14,8 @@ vim.g.neovide_scroll_animation_length = 0.1
 vim.g.neovide_cursor_vfx_mode = "torpedo"
 
 vim.o.title = true
-local hostname = vim.fn.hostname()
-local host = hostname:gsub("^benjamin%-ye%-", ""):match("^[^%.]+")
-vim.o.titlestring = "Neovide: " .. host
+
+local is_wsl = vim.fn.filereadable("/proc/sys/fs/binfmt_misc/WSLInterop") == 1
+local host = is_wsl and "WSL" or vim.fn.hostname():gsub("^benjamin%-ye%-", ""):match("^[^%.]+")
+local prefix = vim.g.neovide and "Neovide: " or "nvim: "
+vim.o.titlestring = prefix .. host

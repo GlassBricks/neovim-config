@@ -26,6 +26,4 @@ g.formatmode = "changes"
 --- for these filetypes and fallback to file
 g.format_range_exclude_ft = { "lua" }
 
-if g.neovide then
-  require("config.neovide")
-end
+require("config.neovide")
