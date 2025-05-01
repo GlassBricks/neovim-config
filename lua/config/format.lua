@@ -1,3 +1,5 @@
+-- Based on https://github.com/LazyVim/LazyVim/pull/4801/files
+
 ---@param buf? boolean
 local function snacks_mode_toggle(buf)
   return Snacks.toggle({

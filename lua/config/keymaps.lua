@@ -8,6 +8,22 @@ local set = vim.keymap.set
 set("n", "<Home>", "^", { remap = false })
 set("n", "'", ";", { remap = true })
 
+set("n", "<leader>y", '"+y', { desc = "yank to clipboard" })
+set("n", "<leader>p", '"+p"', { desc = "paste from clipboard" })
+
+set("n", "<leader>bd", function()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  if
+    vim.bo.modified
+    and filepath ~= ""
+    and vim.fn.filereadable(filepath) == 1
+    and vim.fn.filewritable(filepath) == 1
+  then
+    vim.cmd.write()
+  end
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
+
 -- Nav
 
 -- Get out of the way of gr<motion>
@@ -20,7 +36,7 @@ end, { nowait = true, desc = "References" })
 -- Buffers
 set("n", "<A-Right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 set("n", "<A-Left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
-set("n", "<A-BS>", "<leader>bd", { remap = true })
+set("n", "<A-BS>", "<cmd>w!<cr><esc><leader>bd", { remap = true })
 
 -- Windows
 set("n", "<C-S-Right>", "<C-w>l", { desc = "Focus right window" })
@@ -33,6 +49,4 @@ set("n", "<C-S-BS>", "<C-w>q", { desc = "Close window" })
 set("n", "<C-h>", "<C-w>q", { desc = "Close window" })
 
 -- Format mode
--- Based on https://github.com/LazyVim/LazyVim/pull/4801/files
-
 require("config.format")

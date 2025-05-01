@@ -8,8 +8,15 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  opts = {
+    sync_root_with_cwd = true,
+    respsect_buf_cwd = true,
+    updated_focused_file = {
+      enabled = true,
+      update_root = true,
+    },
+  },
   keys = {
-    -- handled instead in keymaps.lua
     {
       "<leader>e",
       function()
