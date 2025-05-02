@@ -1,4 +1,4 @@
-local gitui_fixed = "exec bash -c 'eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa && exec gitui'"
+local gitui_fixed = "bash -c 'eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa && gitui'"
 
 return {
   "williamboman/mason.nvim",
