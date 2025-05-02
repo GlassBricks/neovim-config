@@ -1,5 +1,6 @@
 return {
   "ahmedkhalf/project.nvim",
+  optional = true,
   opts = {
     patterns = {
       ".project-root",

@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+require("config.format")
+
 local set = vim.keymap.set
 
 -- Editing
@@ -11,20 +13,22 @@ set("n", "'", ";", { remap = true })
 set("n", "<leader>y", '"+y', { desc = "yank to clipboard" })
 set("n", "<leader>p", '"+p"', { desc = "paste from clipboard" })
 
-set("n", "<leader>bd", function()
-  local filepath = vim.api.nvim_buf_get_name(0)
-  if
-    vim.bo.modified
-    and filepath ~= ""
-    and vim.fn.filereadable(filepath) == 1
-    and vim.fn.filewritable(filepath) == 1
-  then
-    vim.cmd.write()
-  end
-  Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
+set("n", "H", function()
+  require("treesj").toggle()
+end, { desc = "Split/Join" })
 
--- Nav
+-- set("n", "<leader>bd", function()
+--   local filepath = vim.api.nvim_buf_get_name(0)
+--   if
+--     vim.bo.modified
+--     and filepath ~= ""
+--     and vim.fn.filereadable(filepath) == 1
+--     and vim.fn.filewritable(filepath) == 1
+--   then
+--     pcall(vim.cmd.write)
+--   end
+--   Snacks.bufdelete()
+-- end, { desc = "Delete Buffer" })
 
 -- Get out of the way of gr<motion>
 pcall(vim.keymap.del, "n", "gra")
@@ -47,6 +51,3 @@ set("n", "<C-S-Home>", "<C-w><C-w>", { desc = "Cycle windows" })
 
 set("n", "<C-S-BS>", "<C-w>q", { desc = "Close window" })
 set("n", "<C-h>", "<C-w>q", { desc = "Close window" })
-
--- Format mode
-require("config.format")
