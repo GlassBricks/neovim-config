@@ -11,12 +11,12 @@ return {
         frecency = true,
         cwd_bonus = true,
       },
+      hidden = true,
+      ignored = true,
       sources = {
         projects = {
           patterns = {
-            "compile_commands.json",
             ".project-root",
-            ".git",
           },
         },
       },

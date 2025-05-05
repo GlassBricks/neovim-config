@@ -8,3 +8,4 @@ foo.*
 data
 lua/config/_*.lua
 lua/plugins/_*.lua
+queries/tac/

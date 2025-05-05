@@ -17,18 +17,18 @@ set("n", "H", function()
   require("treesj").toggle()
 end, { desc = "Split/Join" })
 
--- set("n", "<leader>bd", function()
---   local filepath = vim.api.nvim_buf_get_name(0)
---   if
---     vim.bo.modified
---     and filepath ~= ""
---     and vim.fn.filereadable(filepath) == 1
---     and vim.fn.filewritable(filepath) == 1
---   then
---     pcall(vim.cmd.write)
---   end
---   Snacks.bufdelete()
--- end, { desc = "Delete Buffer" })
+set("n", "<leader>bd", function()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  if
+    vim.bo.modified
+    and filepath ~= ""
+    and vim.fn.filereadable(filepath) == 1
+    and vim.fn.filewritable(filepath) == 1
+  then
+    pcall(vim.cmd.write)
+  end
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
 
 -- Get out of the way of gr<motion>
 pcall(vim.keymap.del, "n", "gra")
@@ -40,7 +40,7 @@ end, { nowait = true, desc = "References" })
 -- Buffers
 set("n", "<A-Right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 set("n", "<A-Left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
-set("n", "<A-BS>", "<cmd>w!<cr><esc><leader>bd", { remap = true })
+set("n", "<A-BS>", "<leader>bd", { remap = true })
 
 -- Windows
 set("n", "<C-S-Right>", "<C-w>l", { desc = "Focus right window" })
@@ -51,3 +51,16 @@ set("n", "<C-S-Home>", "<C-w><C-w>", { desc = "Cycle windows" })
 
 set("n", "<C-S-BS>", "<C-w>q", { desc = "Close window" })
 set("n", "<C-h>", "<C-w>q", { desc = "Close window" })
+
+-- Utils
+set("n", "<leader>sx", "<leader>sR", { remap = true, desc = "Search Resume" })
+
+set("n", "<leader>z", "", { desc = "goto related files" })
+set("n", "<leader>zc", vim.cmd.ClangdSwitchSourceHeader, { desc = "Swap h/cpp" })
+
+pcall(require, "config._local-keymaps")
+
+vim.api.nvim_set_hl(0, "@module", {
+  foreground = "#e5c890",
+  italic = true,
+})

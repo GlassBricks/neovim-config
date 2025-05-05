@@ -31,7 +31,7 @@ return {
       mode = "v",
     },
     { "<leader>gH", vim.cmd.DiffviewFileHistory, desc = "Git history (all)" },
-    { "n", "<leader>gq", vim.cmd.DiffviewClose, { desc = "Quit Diffview" } },
+    { "<leader>gq", vim.cmd.DiffviewClose, { desc = "Quit Diffview" } },
   },
   opts = {
     keymaps = {

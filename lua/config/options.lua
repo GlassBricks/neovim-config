@@ -13,6 +13,8 @@ opt.autowriteall = true
 opt.winblend = 20
 opt.scrolloff = 10
 
+opt.wrapscan = true
+
 ---@class LazyVimGlobals
 local g = vim.g
 g.ai_cmp = false
@@ -29,9 +31,11 @@ g.format_range_exclude_ft = { "lua" }
 
 --- Ui ---
 opt.winblend = 20
-require("config.neovide")
 
 --- Tools and behavior ---
 opt.shell = "fish"
 
-vim.g.root_spec = { "lsp", { ".project-root", "compile_commands.json", ".git", "lua" }, "cwd" }
+vim.g.root_spec = { { ".project-root" }, { "compile_commands.json", ".git", "lua" }, "lsp", "cwd" }
+
+require("config.neovide")
+pcall(require, "config._local-opts")
