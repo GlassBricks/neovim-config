@@ -30,6 +30,8 @@ set("n", "<leader>bd", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 
+set("n", "<A-CR>", "<leader>ca", { remap = true, desc = "Code action" })
+
 -- Get out of the way of gr<motion>
 pcall(vim.keymap.del, "n", "gra")
 pcall(vim.keymap.del, "n", "gri")

@@ -35,7 +35,7 @@ opt.winblend = 20
 --- Tools and behavior ---
 opt.shell = "fish"
 
-vim.g.root_spec = { { ".project-root" }, { "compile_commands.json", ".git", "lua" }, "lsp", "cwd" }
+vim.g.root_spec = { { ".project-root", "compile_commands.json", ".git", "lua" }, "lsp", "cwd" }
 
 require("config.neovide")
 pcall(require, "config._local-opts")
