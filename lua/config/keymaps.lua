@@ -39,10 +39,19 @@ set("n", "gR", function()
   Snacks.picker.lsp_references()
 end, { nowait = true, desc = "References" })
 
+-- Terminal
+
+-- easier exit
+set("t", "<C-.>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 -- Buffers
 set("n", "<A-Right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 set("n", "<A-Left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
 set("n", "<A-BS>", "<leader>bd", { remap = true })
+
+set("n", "<C-A-Left>", vim.cmd.BufferLineMovePrev, { desc = "Move buffer left" })
+set("n", "<C-A-Right>", vim.cmd.BufferLineMoveNext, { desc = "Move buffer right" })
 
 -- Windows
 set("n", "<C-S-Right>", "<C-w>l", { desc = "Focus right window" })
@@ -60,6 +69,7 @@ set("n", "<leader>sx", "<leader>sR", { remap = true, desc = "Search Resume" })
 set("n", "<leader>z", "", { desc = "goto related files" })
 set("n", "<leader>zc", vim.cmd.ClangdSwitchSourceHeader, { desc = "Swap h/cpp" })
 
+-- Misc
 pcall(require, "config._local-keymaps")
 
 vim.api.nvim_set_hl(0, "@module", {

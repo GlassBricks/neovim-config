@@ -47,6 +47,9 @@ local M = LazyVim.format
 ---@param buf number
 function M._format_changes(_, buf)
   local changes = diff_changes(buf)
+  if #changes == 0 then
+    return M._format_file(_, buf)
+  end
   for i = #changes, 1, -1 do
     local change = changes[i]
     require("conform").format({ bufnr = buf, range = change })

@@ -37,5 +37,9 @@ opt.shell = "fish"
 
 vim.g.root_spec = { { ".project-root", "compile_commands.json", ".git", "lua" }, "lsp", "cwd" }
 
+vim.g.lazyvim_python_lsp = "basedpyright"
+
+--- misc ---
+
 require("config.neovide")
 pcall(require, "config._local-opts")

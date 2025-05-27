@@ -11,7 +11,14 @@ return {
   keys = {
     { "<leader>gi", vim.cmd.DiffviewOpen, desc = "Diffview (index)" },
     {
-      "<leader>gD",
+      "<leader>gP",
+      function()
+        vim.cmd("DiffviewOpen HEAD^ (1 commit)")
+      end,
+      desc = "Diffview HEAD^1",
+    },
+    {
+      "<leader>gp",
       function()
         vim.cmd("DiffviewOpen HEAD")
       end,

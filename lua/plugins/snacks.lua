@@ -22,4 +22,13 @@ return {
       },
     },
   },
+  keys = {
+    {
+      "<leader>fl",
+      function()
+        Snacks.explorer.open({ cwd = vim.fn.input("Open dir:") })
+      end,
+      desc = "Explorer Snacks (specify dir)",
+    },
+  },
 }
