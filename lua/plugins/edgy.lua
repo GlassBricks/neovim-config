@@ -7,17 +7,6 @@ return {
       })
     end
     vim.list_extend(opts.left, {
-      {
-        title = "Explorer",
-        ft = "snacks_layout_box",
-        pinned = true,
-        open = function()
-          Snacks.explorer.open()
-        end,
-        filter = function(_, win)
-          return vim.api.nvim_win_get_config(win).relative == ""
-        end,
-      },
       --dap scopes, breakpoints, stacks, watches
       {
         title = "Vars",

@@ -3,11 +3,16 @@ return {
     "mfussenegger/nvim-dap",
     opts = {
       defaults = {
-        fallback = {
+        python = {
           exception_breakpoints = { "uncaught", "userUnhandled" },
         },
       },
     },
+    config = function()
+      local dap = require("dap")
+      --dap.listeners.before.event_terminated["dapui_config"] = nil
+      --dap.listeners.before.event_exited["dapui_config"] = nil
+    end,
   },
   {
     "lucaSartore/nvim-dap-exception-breakpoints",

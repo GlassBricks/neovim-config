@@ -20,8 +20,8 @@ local function snacks_mode_toggle(buf)
     end,
   })
 end
-snacks_mode_toggle():map("<leader>um")
-snacks_mode_toggle(true):map("<leader>uM")
+snacks_mode_toggle():map("<leader>uj")
+snacks_mode_toggle(true):map("<leader>uJ")
 
 local function diff_changes(buf)
   buf = buf or vim.api.get_current_buf(buf)

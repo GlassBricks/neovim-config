@@ -11,6 +11,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/mcphub.nvim",
+      "j-hui/fidget.nvim",
     },
     opts = {
       strategies = {
@@ -44,14 +45,16 @@ return {
         },
       },
     },
-
+    init = function()
+      require("plugins.codecompanion.fidget-spinner"):init()
+      require("plugins.codecompanion.extmarks").setup()
+    end,
     keys = {
       { "<leader>a", "", desc = "Ai" },
       { "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "chat", mode = { "n", "v" } },
       { "<leader>ai", "<cmd>CodeCompanion<cr>", desc = "inline", mode = { "n", "v" } },
-      { "<leader>am", "<cmd>CodeCompanionCmd<cr>", desc = "cmd", mode = { "n", "v" } },
-      { "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "actions", mode = { "n", "v" } },
-      { "<leader>aa", "<cmd>CodeCompanionChat Add<cr>", desc = "add context", mode = { "n", "v" } },
+      { "<leader>aa", "<cmd>CodeCompanionActions<cr>", desc = "actions", mode = { "n", "v" } },
+      { "<leader>ag", "<cmd>CodeCompanionChat Add<cr>", desc = "add context", mode = { "n", "v" } },
     },
   },
   {

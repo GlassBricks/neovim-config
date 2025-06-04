@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 require("config.format")
+require("config.repmo")
 
 local set = vim.keymap.set
 
