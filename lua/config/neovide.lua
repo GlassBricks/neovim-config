@@ -1,4 +1,4 @@
-vim.opt.guifont = "JetBrainsMono Nerd Font:h12"
+vim.opt.guifont = "JetBrainsMono Nerd Font:h11"
 
 vim.g.neovide_title_background_color = "#303446"
 

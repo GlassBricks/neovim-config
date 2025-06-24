@@ -1,8 +1,7 @@
 local function neotree_switch_or_toggle(dir, allow_switch_in_tree)
   local state = require("neo-tree.sources.manager").get_state("filesystem")
   local curwin = vim.api.nvim_get_current_win()
-  if (not state.winid or state.path ~= dir)
-      and ( state.winid ~= curwin or allow_switch_in_tree) then
+  if (not state.winid or state.path ~= dir) and (state.winid ~= curwin or allow_switch_in_tree) then
     -- closed or wrong place, just open
     require("neo-tree.command").execute({ dir = dir })
   else
@@ -33,4 +32,5 @@ return {
       desc = "Explorer NeoTree (cwd)",
     },
   },
+  optional = true,
 }

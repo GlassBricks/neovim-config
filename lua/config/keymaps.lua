@@ -11,9 +11,6 @@ local set = vim.keymap.set
 set("n", "<Home>", "^", { remap = false })
 set("n", "'", ";", { remap = true })
 
-set("n", "<leader>y", '"+y', { desc = "yank to clipboard" })
-set("n", "<leader>p", '"+p"', { desc = "paste from clipboard" })
-
 set("n", "H", function()
   require("treesj").toggle()
 end, { desc = "Split/Join" })
@@ -31,7 +28,11 @@ set("n", "<leader>bd", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 
-set("n", "<A-CR>", "<leader>ca", { remap = true, desc = "Code action" })
+-- Jetbrains keymap ish
+set({ "n", "v" }, "<A-CR>", "<leader>ca", { remap = true, desc = "Code action" })
+set({ "n", "v" }, "<S-F6>", "<leader>cr", { remap = true, desc = "Rename" })
+set({ "n", "v" }, "<C-S-N>", "<leader>fF", { remap = true, desc = "Find files" })
+set({ "n", "v" }, "<M-C-S-N>", "<leader>sS", { remap = true, desc = "Search symbols" })
 
 -- Get out of the way of gr<motion>
 pcall(vim.keymap.del, "n", "gra")
@@ -39,6 +40,9 @@ pcall(vim.keymap.del, "n", "gri")
 set("n", "gR", function()
   Snacks.picker.lsp_references()
 end, { nowait = true, desc = "References" })
+
+-- gsc as alias of gsr
+set("n", "gsc", "gsr", { remap = true })
 
 -- Terminal
 

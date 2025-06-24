@@ -17,6 +17,7 @@ local tmpl = {
     return {
       cmd = "b",
       args = params.args,
+      cwd = LazyVim.root(),
     }
   end,
 }
